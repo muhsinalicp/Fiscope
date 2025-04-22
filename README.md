@@ -29,7 +29,7 @@ Fiscope is a modern financial management platform offering secure transaction tr
 1. **Clone Repository**
 
 ```bash
-git clone https://github.com/yourusername/fiscope.git
+git clone https://github.com/muhsinalicp/fiscope.git
 cd fiscope
 npm install
 ```
