@@ -1,19 +1,42 @@
 "use client";
 import { useInitUser } from "@/components/hooks/useInitUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   SignedIn,
   SignedOut,
   SignInButton,
+  SignOutButton,
   SignUpButton,
+  useClerk,
   UserButton,
+  UserProfile,
+  useUser,
 } from "@clerk/nextjs";
-import { BarChart } from "lucide-react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BarChart, LayoutDashboard, User } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import {
+  IconEyeQuestion,
+  IconInfoCircle,
+  IconLogout,
+} from "@tabler/icons-react";
 
 function Navbar() {
   useInitUser();
+
+  const { user } = useUser();
+  const { openUserProfile } = useClerk();
+
   return (
     <nav className="bg-white shadow-sm">
       <div className="container mx-auto px-6 py-4">
@@ -22,7 +45,7 @@ function Navbar() {
             <BarChart className="h-6 w-6 text-blue-600" />
             <span className="text-xl font-semibold text-gray-900">FinViz</span>
           </Link>
-          <div className="flex items-center space-x-6">
+          <div className="hidden sm:flex items-center space-x-6">
             <Link
               href="/dashboard"
               className="text-gray-600 hover:text-blue-600 transition-colors text-sm font-medium"
@@ -55,6 +78,78 @@ function Navbar() {
             <SignedIn>
               <UserButton />
             </SignedIn>
+          </div>
+
+          <div className="flex sm:hidden">
+            <SignedIn>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Avatar className="h-10 w-10 rounded-full">
+                    <AvatarImage
+                      src={user?.hasImage ? user.imageUrl : ""}
+                      alt={user?.fullName || "user profile pic"}
+                    />
+                    <AvatarFallback className="rounded-full">MA</AvatarFallback>
+                  </Avatar>
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => openUserProfile()}>
+                    <div className="flex items-center gap-1">
+                      <User />
+                      Profile
+                    </div>
+                  </DropdownMenuItem>
+
+                  <Link href={"/about"}>
+                    <DropdownMenuItem>
+                      <div className="flex items-center gap-1">
+                        <IconInfoCircle />
+                        About
+                      </div>
+                    </DropdownMenuItem>
+                  </Link>
+
+                  <Link href={"/dashboard"}>
+                    <DropdownMenuItem>
+                      <div className="flex items-center gap-1">
+                        <LayoutDashboard />
+                        Dashboard
+                      </div>
+                    </DropdownMenuItem>
+                  </Link>
+
+                  <DropdownMenuItem>
+                    <SignOutButton>
+                      <div className="flex items-center gap-1">
+                        <IconLogout />
+                        Sign Out
+                      </div>
+                    </SignOutButton>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SignedIn>
+
+            <SignedOut>
+              <div className="flex gap-2">
+                <SignInButton>
+                  <Button
+                    variant="ghost"
+                    className="text-gray-600 hover:bg-gray-100"
+                  >
+                    Sign In
+                  </Button>
+                </SignInButton>
+                <SignUpButton>
+                  <Button className="bg-blue-600 hover:bg-blue-700">
+                    Get Started
+                  </Button>
+                </SignUpButton>
+              </div>
+            </SignedOut>
           </div>
         </div>
       </div>
