@@ -40,13 +40,15 @@ npm install
 npm install
 ```
 
-3. **Environment Setup**
+3. ## 🔧 Environment Setup
 
--Create .env file:
+Create a `.env` file in your root directory and add the following:
 
+```env
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_pub_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 MONGO_URI=mongodb://localhost:27017/fiscope
+```
 
 4 . **Start Development Server**
 
@@ -56,10 +58,12 @@ npm run dev
 
 ## 🧩 Tech Stack
 
-- Framework: Next.js 14
-  -Authentication: Clerk
-  -Database: MongoDB + Mongoose ORM
-  -Styling: Tailwind CSS + shadcn/ui
-  -Visualization: recharts + shadcn
-  -Icons: Lucide
-  -Hosting: Vercel/Netlify/Docker
+| Layer             | Technology                                         |
+| ----------------- | -------------------------------------------------- |
+| **Framework**     | [Next.js 14](https://nextjs.org/)                  |
+| **Auth**          | [Clerk](https://clerk.dev/)                        |
+| **Database**      | MongoDB + Mongoose ORM                             |
+| **Styling**       | Tailwind CSS + [shadcn/ui](https://ui.shadcn.com/) |
+| **Visualization** | [Recharts](https://recharts.org/en-US/) + shadcn   |
+| **Icons**         | [Lucide](https://lucide.dev/)                      |
+| **Hosting**       | Vercel / Netlify / Docker                          |
