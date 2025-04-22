@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fiscope - Intelligent Financial Management Platform
 
-## Getting Started
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black?logo=next.js)](https://nextjs.org/)
+[![Clerk](https://img.shields.io/badge/Clerk-Authentication-purple)](https://clerk.com/)
 
-First, run the development server:
+Fiscope is a modern financial management platform offering secure transaction tracking, intelligent budgeting, and comprehensive spending analytics with enterprise-grade security.
+
+## ✨ Key Features
+
+- **🔒 Secure Authentication** - Powered by Clerk with multi-factor auth support
+- **📊 Financial Dashboard** - Interactive charts (Bar, Pie) for spending analysis
+- **💸 Transaction Management** - CRUD operations with real-time validation
+- **📈 Budget Tracking** - Monthly budget planning with progress indicators
+- **📱 Responsive Design** - Optimized for all devices with mobile-first approach
+- **🔔 Smart Notifications** - Budget alerts and spending milestones
+- **🛡️ Security First** - End-to-end encryption and PCI DSS compliance
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- MongoDB 7.0+
+- Clerk account (free tier available)
+
+### Installation
+
+1. **Clone Repository**
+
+```bash
+git clone https://github.com/yourusername/fiscope.git
+cd fiscope
+npm install
+```
+
+2. **Clone Repository**
+
+```bash
+npm install
+```
+
+3. **Environment Setup**
+
+-Create .env file:
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_pub_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+MONGO_URI=mongodb://localhost:27017/fiscope
+
+4 . **Start Development Server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧩 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Framework: Next.js 14
+  -Authentication: Clerk
+  -Database: MongoDB + Mongoose ORM
+  -Styling: Tailwind CSS + shadcn/ui
+  -Visualization: recharts + shadcn
+  -Icons: Lucide
+  -Hosting: Vercel/Netlify/Docker
